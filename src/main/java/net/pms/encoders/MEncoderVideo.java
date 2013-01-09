@@ -1923,14 +1923,8 @@ public class MEncoderVideo extends Player {
 		}
 
 		// Make MEncoder output framerate correspond to InterFrame
-		if (avisynth() && configuration.getAvisynthInterFrame() && !"60000/1001".equals(frameRateRatio) && !"50".equals(frameRateRatio) && !"60".equals(frameRateRatio)) {
-			if ("25".equals(frameRateRatio)) {
-				ofps = "50";
-			} else if ("30".equals(frameRateRatio)) {
-				ofps = "60";
-			} else {
-				ofps = "60000/1001";
-			}
+		if (avisynth() ) {
+			ofps = "60000/1001";
 		}
 
 		cmdList.add("-ofps");
