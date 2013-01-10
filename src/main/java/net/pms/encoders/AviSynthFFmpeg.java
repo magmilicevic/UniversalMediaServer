@@ -149,7 +149,7 @@ public class AviSynthFFmpeg extends FFmpegVideo {
 			Cores = PMS.getConfiguration().getNumberOfCpuCores();
 
 			// Goes at the start of the file to initiate multithreading
-			mtLine1 = "SetMemoryMax(512)\nSetMTMode(3," + Cores + ")\n";
+			mtLine1 = "SetMemoryMax(1024)\nSetMTMode(3,12)\n";
 
 			// Goes after the input line to make multithreading more efficient
 			mtLine2 = "SetMTMode(2)";
@@ -166,11 +166,7 @@ public class AviSynthFFmpeg extends FFmpegVideo {
 			}
 
 			interframeLines = "\n" +
-				"PluginPath = \"" + interframePath + "\"\n" +
-				"LoadPlugin(PluginPath+\"svpflow1.dll\")\n" +
-				"LoadPlugin(PluginPath+\"svpflow2.dll\")\n" +
-				"Import(PluginPath+\"InterFrame2.avsi\")\n" +
-				"InterFrame(Cores=" + Cores + GPU + ")\n";
+				"InterFrame(Cores=4"+ GPU +",Tuning=\"Animation\",NewNum=23976,NewDen=400)\n";
 		}
 
 		String subLine = null;
