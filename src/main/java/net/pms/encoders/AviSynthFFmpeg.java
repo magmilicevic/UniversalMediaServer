@@ -166,7 +166,7 @@ public class AviSynthFFmpeg extends FFmpegVideo {
 			}
 
 			interframeLines = "\n" +
-				"InterFrame(Cores=4"+ GPU +",Tuning=\"Animation\",NewNum=23976,NewDen=400)\n";
+				"InterFrame(Cores=4"+ GPU +",Tuning=\"Animation\")\n";
 		}
 
 		String subLine = null;
