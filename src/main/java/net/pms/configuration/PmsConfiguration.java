@@ -1729,7 +1729,14 @@ public class PmsConfiguration {
 		mpegSettings = mpegSettings.replaceAll("[^\\d=]", "");
 		String mpegSettingsArray[] = mpegSettings.split("=");
 		String customffmpeg = getString(KEY_FFMPEG_CUSTOM, "");
-		return "-g " + mpegSettingsArray[1] + " -q:v " + mpegSettingsArray[2] + " -qmin " + mpegSettingsArray[3] + customffmpeg;
+		if (!customffmpeg.equals(""))
+		{
+			return "-g " + mpegSettingsArray[1] + " -q:v " + mpegSettingsArray[2] + " -qmin " + mpegSettingsArray[3] + " " + customffmpeg;
+		}		
+		else
+		{
+			return "-g " + mpegSettingsArray[1] + " -q:v " + mpegSettingsArray[2] + " -qmin " + mpegSettingsArray[3];
+		}
 	}
 
 	public void setFfmpegMultithreading(boolean value) {
