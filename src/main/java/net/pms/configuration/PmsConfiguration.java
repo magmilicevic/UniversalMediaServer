@@ -93,6 +93,7 @@ public class PmsConfiguration {
 	private static final String KEY_FFMPEG_AVISYNTH_CONVERT_FPS = "ffmpeg_avisynth_convertfps";
 	private static final String KEY_FFMPEG_AVISYNTH_INTERFRAME = "ffmpeg_avisynth_interframe";
 	private static final String KEY_FFMPEG_AVISYNTH_INTERFRAME_GPU = "ffmpeg_avisynth_interframegpu";
+	private static final String KEY_FFMPEG_CUSTOM = "ffmpeg_custom";
 	private static final String KEY_FIX_25FPS_AV_MISMATCH = "fix_25fps_av_mismatch";
 	private static final String KEY_FORCETRANSCODE = "forcetranscode";
 	private static final String KEY_FOLDER_LIMIT = "folder_limit";
