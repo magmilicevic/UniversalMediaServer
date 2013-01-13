@@ -1727,7 +1727,8 @@ public class PmsConfiguration {
 		String mpegSettings = getMencoderMainSettings();
 		mpegSettings = mpegSettings.replaceAll("[^\\d=]", "");
 		String mpegSettingsArray[] = mpegSettings.split("=");
-		return "-g " + mpegSettingsArray[1] + " -q:v " + mpegSettingsArray[2] + " -qmin " + mpegSettingsArray[3] + getString(KEY_FFMPEG_CUSTOM,"");
+		String customffmpeg = getString(KEY_FFMPEG_CUSTOM, "");
+		return "-g " + mpegSettingsArray[1] + " -q:v " + mpegSettingsArray[2] + " -qmin " + mpegSettingsArray[3] + customffmpeg;
 	}
 
 	public void setFfmpegMultithreading(boolean value) {
