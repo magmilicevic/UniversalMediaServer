@@ -129,7 +129,7 @@ public class AviSynthFFmpeg extends FFmpegVideo {
 
 		String convertfps = "";
 		if (PMS.getConfiguration().getFfmpegAvisynthConvertFps()) {
-			convertfps = ", convertfps=true";
+			//convertfps = ", convertfps=true";
 		}
 
 		File f = new File(fileName);
@@ -183,10 +183,8 @@ public class AviSynthFFmpeg extends FFmpegVideo {
 
 		ArrayList<String> lines = new ArrayList<String>();
 
-		lines.add(mtLine1);
-
 		boolean fullyManaged = false;
-		String script = "<movie>\n<sub>\n";
+		String script = PMS.getConfiguration().getAvisynthScript();
 		StringTokenizer st = new StringTokenizer(script, PMS.AVS_SEPARATOR);
 		while (st.hasMoreTokens()) {
 			String line = st.nextToken();
@@ -194,11 +192,6 @@ public class AviSynthFFmpeg extends FFmpegVideo {
 				fullyManaged = true;
 			}
 			lines.add(line);
-		}
-
-		if (PMS.getConfiguration().getFfmpegAvisynthInterFrame()) {
-			lines.add(mtLine2);
-			lines.add(interframeLines);
 		}
 
 		if (fullyManaged) {
